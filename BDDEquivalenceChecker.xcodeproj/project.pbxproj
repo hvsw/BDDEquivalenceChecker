@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6202A0CA23AE6B35007E5027 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6202A0C923AE6B35007E5027 /* main.cpp */; };
+		6202A0D423AE6D25007E5027 /* mainTesteBdds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6202A0D123AE6D25007E5027 /* mainTesteBdds.cpp */; };
+		6202A0D523AE6D25007E5027 /* gerentebdd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6202A0D223AE6D25007E5027 /* gerentebdd.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,9 @@
 /* Begin PBXFileReference section */
 		6202A0C623AE6B35007E5027 /* BDDEquivalenceChecker */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BDDEquivalenceChecker; sourceTree = BUILT_PRODUCTS_DIR; };
 		6202A0C923AE6B35007E5027 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6202A0D123AE6D25007E5027 /* mainTesteBdds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mainTesteBdds.cpp; sourceTree = "<group>"; };
+		6202A0D223AE6D25007E5027 /* gerentebdd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gerentebdd.cpp; sourceTree = "<group>"; };
+		6202A0D323AE6D25007E5027 /* gerentebdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gerentebdd.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +62,20 @@
 		6202A0C823AE6B35007E5027 /* BDDEquivalenceChecker */ = {
 			isa = PBXGroup;
 			children = (
+				6202A0D023AE6D15007E5027 /* gerentebdd */,
 				6202A0C923AE6B35007E5027 /* main.cpp */,
 			);
 			path = BDDEquivalenceChecker;
+			sourceTree = "<group>";
+		};
+		6202A0D023AE6D15007E5027 /* gerentebdd */ = {
+			isa = PBXGroup;
+			children = (
+				6202A0D223AE6D25007E5027 /* gerentebdd.cpp */,
+				6202A0D323AE6D25007E5027 /* gerentebdd.h */,
+				6202A0D123AE6D25007E5027 /* mainTesteBdds.cpp */,
+			);
+			path = gerentebdd;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +136,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6202A0CA23AE6B35007E5027 /* main.cpp in Sources */,
+				6202A0D523AE6D25007E5027 /* gerentebdd.cpp in Sources */,
+				6202A0D423AE6D25007E5027 /* mainTesteBdds.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
