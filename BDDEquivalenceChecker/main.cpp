@@ -135,6 +135,13 @@ int main(int argc, const char * argv[]) {
         cout << atoi(line.c_str()) << " //ID:" << outputsID[i] << endl;
     }
 
+    // Algorithm(TODO):
+    // 1 - Create clauses
+    // 2 - Create a dictionary so we can find the original inputs
+    // Ex.:
+    // A = B*C
+    // B = X*Y
+    // Therefore: A = X*Y*C
     string eq1, eq2;
     std::vector<string> equation1; // ((A*B)*(B*C))
     std::vector<string> terms;     // (A*B)
