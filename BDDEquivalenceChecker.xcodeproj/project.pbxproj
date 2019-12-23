@@ -10,6 +10,8 @@
 		6202A0CA23AE6B35007E5027 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6202A0C923AE6B35007E5027 /* main.cpp */; };
 		6202A0D423AE6D25007E5027 /* mainTesteBdds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6202A0D123AE6D25007E5027 /* mainTesteBdds.cpp */; };
 		6202A0D523AE6D25007E5027 /* gerentebdd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6202A0D223AE6D25007E5027 /* gerentebdd.cpp */; };
+		6202A0D723AE730B007E5027 /* aigreader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6202A0D623AE730B007E5027 /* aigreader.cpp */; };
+		6202A1B023AE81DB007E5027 /* structures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6202A1AF23AE81DB007E5027 /* structures.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +32,12 @@
 		6202A0D123AE6D25007E5027 /* mainTesteBdds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mainTesteBdds.cpp; sourceTree = "<group>"; };
 		6202A0D223AE6D25007E5027 /* gerentebdd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gerentebdd.cpp; sourceTree = "<group>"; };
 		6202A0D323AE6D25007E5027 /* gerentebdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gerentebdd.h; sourceTree = "<group>"; };
+		6202A0D623AE730B007E5027 /* aigreader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = aigreader.cpp; sourceTree = "<group>"; };
+		6202A0D923AE731F007E5027 /* structures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = structures.h; sourceTree = "<group>"; };
+		6202A1AF23AE81DB007E5027 /* structures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = structures.cpp; sourceTree = "<group>"; };
+		6202A1B623AEA36E007E5027 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6202A1B923AEA42D007E5027 /* LICENCE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENCE.md; sourceTree = "<group>"; };
+		6202A1BB23AEA434007E5027 /* aiglec.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = aiglec.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +54,7 @@
 		6202A0BD23AE6B35007E5027 = {
 			isa = PBXGroup;
 			children = (
+				6202A1B623AEA36E007E5027 /* README.md */,
 				6202A0C823AE6B35007E5027 /* BDDEquivalenceChecker */,
 				6202A0C723AE6B35007E5027 /* Products */,
 			);
@@ -62,7 +71,7 @@
 		6202A0C823AE6B35007E5027 /* BDDEquivalenceChecker */ = {
 			isa = PBXGroup;
 			children = (
-				6202A0D023AE6D15007E5027 /* gerentebdd */,
+				6202A0D823AE731F007E5027 /* include */,
 				6202A0C923AE6B35007E5027 /* main.cpp */,
 			);
 			path = BDDEquivalenceChecker;
@@ -76,6 +85,27 @@
 				6202A0D123AE6D25007E5027 /* mainTesteBdds.cpp */,
 			);
 			path = gerentebdd;
+			sourceTree = "<group>";
+		};
+		6202A0D823AE731F007E5027 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				6202A1BA23AEA434007E5027 /* aigbdd */,
+				6202A0D023AE6D15007E5027 /* gerentebdd */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		6202A1BA23AEA434007E5027 /* aigbdd */ = {
+			isa = PBXGroup;
+			children = (
+				6202A1BB23AEA434007E5027 /* aiglec.cpp */,
+				6202A0D623AE730B007E5027 /* aigreader.cpp */,
+				6202A1B923AEA42D007E5027 /* LICENCE.md */,
+				6202A1AF23AE81DB007E5027 /* structures.cpp */,
+				6202A0D923AE731F007E5027 /* structures.h */,
+			);
+			path = aigbdd;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +167,8 @@
 			files = (
 				6202A0CA23AE6B35007E5027 /* main.cpp in Sources */,
 				6202A0D523AE6D25007E5027 /* gerentebdd.cpp in Sources */,
+				6202A1B023AE81DB007E5027 /* structures.cpp in Sources */,
+				6202A0D723AE730B007E5027 /* aigreader.cpp in Sources */,
 				6202A0D423AE6D25007E5027 /* mainTesteBdds.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
