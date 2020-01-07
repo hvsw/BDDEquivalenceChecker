@@ -120,10 +120,10 @@ gerentebdd g;
 
 nodobdd* bddFromAIG(const char* filename) {
     nodobdd* finalBdd = NULL;
-    cout << "Processing file '" << filename << "'";
+    cout << endl << endl << "********** Processing file '" << filename << "' **********" << endl;
     ifstream myfile (filename);
     if (myfile.is_open() == 0) {
-        cout << "Cannot open file:" << filename << endl;
+        cout << "Cannot open file: " << filename << endl;
         return finalBdd;
     }
     
@@ -134,7 +134,7 @@ nodobdd* bddFromAIG(const char* filename) {
     for(std::string token; getline(buf, token, ' '); ) {
         v.push_back(token);
     }
-    std::cout << '\n';
+    std::cout << endl;
     
     // Check if header information (MILOA) is alright
     int M = atoi(v[1].c_str());
@@ -142,6 +142,7 @@ nodobdd* bddFromAIG(const char* filename) {
     int L = atoi(v[3].c_str());
     int O = atoi(v[4].c_str());
     int A = atoi(v[5].c_str());
+    cout << "----------------------------" << endl;
     cout << "Header Info: "               << endl;
     cout << "M (maximum variable index):" << v[1] << endl;
     cout << "I (number of inputs):"       << v[2] << endl;
@@ -149,17 +150,22 @@ nodobdd* bddFromAIG(const char* filename) {
     cout << "O (number of outputs):"      << v[4] << endl;
     cout << "A (number of AND gates):"    << v[5] << endl;
     cout << "----------------------------" << endl;
-    cout << "Verifying if M=I+L+A" << endl;
-    if (M != I+L+A) {
-        cout << "ERROR: Invalid! M != I+L+A" << endl;
-        exit(-1);
+    cout << "Is MILOA valid? (M=I+L+A)" << endl;
+    int isMILOAValid = (M == I+L+A);
+    cout << (isMILOAValid ? "YES" : "NO") << endl;
+    if (!isMILOAValid) {
+        cout << "MILOA invalid" << endl;
+        cout << "M" << M << endl;
+        cout << "I" << I << endl;
+        cout << "L" << L << endl;
+        cout << "A" << A << endl;
+        return NULL;
     }
+    cout << "----------------------------" << endl;
     
     // Primary Inputs
-    //    hash<nodobdd*>
-    //    nodobdd* inputs[I];
     unordered_map<int, nodobdd*> inputs;
-    cout << "Inputs: ";
+    cout << "Inputs: " << endl;
     for (int i = 0; i < I; i++) {
         getline(myfile, line);
         int input = stoi(line);
@@ -167,10 +173,11 @@ nodobdd* bddFromAIG(const char* filename) {
         cout << input << " ";
     }
     cout << endl;
+    cout << "----------------------------" << endl;
     
     // Primary Ouputs
     int negatedOutputs[O];
-    cout << "Outputs: ";
+    cout << "Outputs: " << endl;
     for (int i = 0; i < O; ++i) {
         getline(myfile,line);
         int output = stoi(line);
@@ -181,8 +188,9 @@ nodobdd* bddFromAIG(const char* filename) {
         cout << output << " ";
     }
     cout << endl;
+    cout << "----------------------------" << endl;
     
-    int isNegated = 0;
+    cout << "Processing ANDs" << endl;
     for (int andIndex = 0; andIndex < A; andIndex++) {
         getline(myfile,line);
         std::vector<std::string> gates;
@@ -194,13 +202,7 @@ nodobdd* bddFromAIG(const char* filename) {
             // Control negated output
             if (tokenIndex == 0) {
                 int outputVariable = stoi(token);
-                for (int i = 0; i < O; i++) {
-                    if (negatedOutputs[i] == outputVariable+1) {
-                        isNegated = 1;
-                        break;
-                    }
-                }
-                continue;
+                inputs[outputVariable] = g.cadastravariavel(token);
             }
             
             // Process AND inputs
@@ -215,12 +217,12 @@ nodobdd* bddFromAIG(const char* filename) {
                 }
                 
                 nodobdd *termInput = NULL;
-                auto search = inputs.find(tokenInt);
+                auto search = inputs.find(termInt);
                 if (search != inputs.end()) {
                     termInput = search->second;
                     std::cout << "Found " << search->first << " " << search->second << '\n';
                 } else {
-                    std::cout << "Token (" << tokenInt << ") not found" << endl;
+                    std::cout << "Term (" << termInt << ") not found for token (" << tokenInt << ")" << endl;
                     continue;
                 }
                 
@@ -242,6 +244,8 @@ nodobdd* bddFromAIG(const char* filename) {
         
         finalBdd = g.and2(finalBdd, n2);
     }
+    cout << "----------------------------" << endl;
+    cout << endl;
     
     return finalBdd;
 }
