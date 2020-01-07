@@ -29,8 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -54,16 +52,14 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/valcanaia/Documents/UFRGS/2019-2/CAD/Comparador-BDD/BDDEquivalenceChecker/BDDEquivalenceChecker/graphs/test1.aag"
+            argument = "/Users/valcanaia/Documents/UFRGS/2019-2/CAD/Comparador-BDD/BDDEquivalenceChecker/BDDEquivalenceChecker/graphs/test3.aag"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/valcanaia/Documents/UFRGS/2019-2/CAD/Comparador-BDD/BDDEquivalenceChecker/BDDEquivalenceChecker/graphs/test1.aag"
+            argument = "/Users/valcanaia/Documents/UFRGS/2019-2/CAD/Comparador-BDD/BDDEquivalenceChecker/BDDEquivalenceChecker/graphs/test3.aag"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
