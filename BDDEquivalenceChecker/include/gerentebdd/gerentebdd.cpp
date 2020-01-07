@@ -365,7 +365,7 @@ Token_value gerentebdd::get_token(istringstream &equation)
             return curr_tok=Token_value(ch);
             
         default: // NAME, NAME =, or error
-            if(isalpha(ch)) {
+            if(isalnum(ch)) {
                 string_value="";
                 for( ; isalnum(ch) && !equation.eof(); equation>>ch)
                 {
