@@ -52,11 +52,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/valcanaia/Documents/UFRGS/2019-2/CAD/Comparador-BDD/BDDEquivalenceChecker/BDDEquivalenceChecker/graphs/test4.aag"
+            argument = "/Users/valcanaia/Documents/UFRGS/2019-2/CAD/Comparador-BDD/BDDEquivalenceChecker/BDDEquivalenceChecker/graphs/xor_1.aag"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/valcanaia/Documents/UFRGS/2019-2/CAD/Comparador-BDD/BDDEquivalenceChecker/BDDEquivalenceChecker/graphs/test1.aag"
+            argument = "/Users/valcanaia/Documents/UFRGS/2019-2/CAD/Comparador-BDD/BDDEquivalenceChecker/BDDEquivalenceChecker/graphs/xor_dois.aag"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
