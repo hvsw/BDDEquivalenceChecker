@@ -44,24 +44,50 @@ string equationFromAIG(const char* filename) {
     }
 
     // Primary Inputs
-    cout << "Inputs: \n";
+    cout << "Inputs: ";
     for (int i = 0; i < I; i++) {
         getline(myfile, line);
+        int input = stoi(line);
+        cout << input << " ";
     }
+    cout << endl;
 
     // Primary Ouputs
-    cout << "Outputs: \n";
+    int negatedOutputs[O];
+    cout << "Outputs: ";
     for (int i = 0; i < O; ++i) {
         getline(myfile,line);
+        int output = stoi(line);
+        int isEven = (output % 2 == 1);
+        if (isEven) {
+            negatedOutputs[i] = output;
+        }
+        cout << output << " ";
     }
+    cout << endl;
 
     string eq1;
+    int isNegated = 0;
     for (int andIndex = 0; andIndex < A; andIndex++) {
         getline(myfile,line);
         std::vector<std::string> gates;
         std::istringstream buf(line);
         int tokenIndex = 0;
+        
         for (std::string token; getline(buf, token, ' '); tokenIndex++) {
+            // Control negated output
+            if (tokenIndex == 0) {
+                int outputVariable = stoi(token);
+                for (int i = 0; i < O; i++) {
+                    if (negatedOutputs[i] == outputVariable+1) {
+                        isNegated = 1;
+                        break;
+                    }
+                }
+                continue;
+            }
+            
+            // Process AND inputs
             if (tokenIndex == 1 || tokenIndex == 2) {
                 if (!eq1.empty() && tokenIndex == 1) {
                     eq1.append("*");
@@ -71,6 +97,11 @@ string equationFromAIG(const char* filename) {
                 
                 int termInt = stoi(token);
                 string term = (termInt % 2 == 0) ? to_string(termInt) : negated.append(to_string(termInt-1));
+                
+                if (isNegated) {
+                    isNegated = 0;
+                    eq1.append("!");
+                }
                 
                 if (tokenIndex == 1) {
                     eq1.append("(").append(term);
@@ -85,7 +116,7 @@ string equationFromAIG(const char* filename) {
 }
 
 int main(int argc, const char * argv[]) {
-    if (argc != 3 ){
+    if (argc != 3 ) {
         cout << "Usage: ./main aig1.aag aig2.aag" << endl;
     }
     
