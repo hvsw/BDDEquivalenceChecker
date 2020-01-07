@@ -263,6 +263,7 @@ int main(int argc, const char * argv[]) {
     } else {
         cout << "IS DIFFERENT!!!";
     }
+    cout << endl;
     
     return EXIT_SUCCESS;
 }
